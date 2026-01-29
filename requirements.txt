@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+flask
+setuptools
+matplotlib
+
+-e . #triggers the setup.py file
