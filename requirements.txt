@@ -4,5 +4,7 @@ requests
 flask
 setuptools
 matplotlib
+seaborn
+scikit-learn
 
--e . #triggers the setup.py file
+#-e . #triggers the setup.py file
