@@ -7,13 +7,16 @@ from dataclasses import dataclass
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
+# Get the project root directory (parent of src folder)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 ## initialize the data ingestion configuration
 
 @dataclass
 class DataIngestionconfig:
-    train_data_path:str=os.path.join('artifacts','train.csv')
-    test_data_path:str=os.path.join('artifacts','test.csv')
-    raw_data_path:str=os.path.join('artifacts','raw.csv')
+    train_data_path:str=os.path.join(PROJECT_ROOT,'artifacts','train.csv')
+    test_data_path:str=os.path.join(PROJECT_ROOT,'artifacts','test.csv')
+    raw_data_path:str=os.path.join(PROJECT_ROOT,'artifacts','raw.csv')
 
 ## create a data ingestion class
 class DataIngestion:
@@ -22,7 +25,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Data Ingestion started')
         try:
-            df=pd.read_csv(os.path.join('notebooks/data','gemstone.csv'))
+            df=pd.read_csv(os.path.join(PROJECT_ROOT,'notebooks','data','gemstone.csv'))
             logging.info('Dataset read as pandas Dataframe')
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
             df.to_csv(self.ingestion_config.raw_data_path,index=False)
