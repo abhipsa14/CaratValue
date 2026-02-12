@@ -1,4 +1,4 @@
-# 💎 Diamond Price Prediction
+# CaratValue
 
 A Machine Learning project that predicts the price of diamonds based on their physical and quality features such as carat, cut, color, clarity, and dimensions.
 
